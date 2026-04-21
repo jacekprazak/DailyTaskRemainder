@@ -30,7 +30,8 @@ public class AccountController(AppDbContext context, ITokenService tokenService)
                 DisplayName = registerDto.Name,
                 Gender = registerDto.Gender,
                 City = registerDto.City,
-                Country = registerDto.Country
+                Country = registerDto.Country,
+                DateOfBirth = registerDto.DateOfBirth
             }
         };
 
