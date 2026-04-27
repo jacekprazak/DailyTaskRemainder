@@ -13,7 +13,7 @@
         </div>
         @if (paginatedResult.metadata; as metadata) {
             <app-paginator
-                [hidden]="metadata.totalCount ===0"
+                [hidden]="metadata.totalCount === 0"
                 [pageNumber]="metadata.currentPage"
                 [pageSize]="metadata.pageSize"
                 [totalCount]="metadata.totalCount"
@@ -24,7 +24,7 @@
     </div>
     @if (paginatedResult.items; as members) {
         @if (members.length > 0) {
-            <div class="grid grid-col-5 gap-6 mt-3">
+            <div class="grid grid-cols-5 gap-6 mt-3">
                 @for (member of members; track member.id) {
                     <app-member-card [member]="member" />
                 }

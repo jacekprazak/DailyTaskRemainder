@@ -24,7 +24,7 @@ export class LikesService {
     params = params.append('pageSize', pageSize)
     params = params.append('predicate', predicate)
 
-    return this.http.get<PaginatedResult<Member>>(this.baseUrl + 'likes' + {params})
+    return this.http.get<PaginatedResult<Member>>(this.baseUrl + 'likes', {params})
   }
 
   getLikeIds() {
