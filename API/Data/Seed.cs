@@ -8,7 +8,7 @@ namespace API.Data;
 
 public class Seed
 {
-    public static async Task SeedUsers(UserManager<User> userManager)
+    public static async Task SeedUsers(UserManager<AppUser> userManager)
     {
         if (await userManager.Users.AnyAsync()) return;
 
@@ -26,7 +26,7 @@ public class Seed
         foreach (var member in members)
         {
 
-            var user = new User
+            var user = new AppUser
             {
                 Id = member.Id,
                 Email = member.Email,
@@ -62,7 +62,7 @@ public class Seed
             await userManager.AddToRoleAsync(user, "Member");
         }
 
-        var admin = new User
+        var admin = new AppUser
         {
             UserName = "admin@test.com",
             Email = "admin@test.com",

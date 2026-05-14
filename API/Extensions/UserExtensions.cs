@@ -6,7 +6,7 @@ namespace API.Extensions;
 
 public static class UserExtensions
 {
-    public static async Task<UserDto> ToDto(this User user, ITokenService tokenService)
+    public static async Task<UserDto> ToDto(this AppUser user, ITokenService tokenService)
     {
         return new UserDto
         {

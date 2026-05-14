@@ -9,13 +9,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-public class AccountController(UserManager<User> userManager, ITokenService tokenService) : BaseApiController
+public class AccountController(UserManager<AppUser> userManager, ITokenService tokenService) : BaseApiController
 {
     [HttpPost("register")]
     public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
     {
 
-        var user = new User
+        var user = new AppUser
         {
             Name = registerDto.Name,
             Email = registerDto.Email,
@@ -82,7 +82,7 @@ public class AccountController(UserManager<User> userManager, ITokenService toke
         return await user.ToDto(tokenService);
     }
 
-    private async Task SetRefreshTokenCookie(User user)
+    private async Task SetRefreshTokenCookie(AppUser user)
     {
         var refreshToken = tokenService.GenerateRefreshToken();
         user.RefreshToken = refreshToken;

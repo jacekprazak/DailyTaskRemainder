@@ -9,9 +9,9 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace API.Services;
 
-public class TokenService(IConfiguration config, UserManager<User> userManager) : ITokenService
+public class TokenService(IConfiguration config, UserManager<AppUser> userManager) : ITokenService
 {
-    public async Task<string> CreateToken(User user)
+    public async Task<string> CreateToken(AppUser user)
     {
         // 1) Get the key from config file 
         var tokenKey = config["TokenKey"] ?? throw new Exception("Token key doesn't exist!");
