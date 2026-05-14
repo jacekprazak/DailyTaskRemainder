@@ -55,7 +55,7 @@ export class AccountService {
             this.logout()
           }
         })
-    }, 15 * 60 * 1000)
+    }, 14 * 24 * 60 * 60 * 1000)
   }
 
   setCurrentUser(user: User) {
